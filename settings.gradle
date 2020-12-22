@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "SequenceGame_S00187127_Ronan_Finnegan_Duffy"
