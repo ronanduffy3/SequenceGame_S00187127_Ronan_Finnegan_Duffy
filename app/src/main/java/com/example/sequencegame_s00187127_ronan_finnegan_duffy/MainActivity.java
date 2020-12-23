@@ -8,6 +8,8 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -69,19 +71,19 @@ public class MainActivity extends AppCompatActivity {
 
         switch(n){
             case 1:
-                flashButton(bttnBlue);
+                flashButton1(bttnBlue);
                 gameSequence[arrayIndex++] = BLUE;
                 break;
             case 2:
-                flashButton(bttnRed);
+                flashButton1(bttnRed);
                 gameSequence[arrayIndex++] = RED;
                 break;
             case 3:
-                flashButton(bttnYellow);
+                flashButton1(bttnYellow);
                 gameSequence[arrayIndex++] = YELLOW;
                 break;
             case 4:
-                flashButton(bttnGreen);
+                flashButton1(bttnGreen);
                 gameSequence[arrayIndex++] = GREEN;
                 break;
             default:
@@ -90,24 +92,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void flashButton(Button buttonToFlash) {
+    private void flashButton1(Button buttonToFlash) {
         bttnFlash = buttonToFlash;
-        Handler handler = new Handler();
-        Runnable r = new Runnable() {
-            public void run() {
-                bttnFlash.setPressed(true);
-                bttnFlash.invalidate();
-                bttnFlash.performClick();
-                Handler handler1 = new Handler();
-                Runnable r1 = new Runnable() {
-                    public void run() {
-                        bttnFlash.setPressed(false);
-                        bttnFlash.invalidate();
-                    }
-                };
-                handler1.postDelayed(r1, 600);
-            }
-        };
+        Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
+        Animation animFadeOut = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_out);
+        bttnFlash.startAnimation(animFadeOut);
+        bttnFlash.startAnimation(animFadeIn);
 
     }
 
