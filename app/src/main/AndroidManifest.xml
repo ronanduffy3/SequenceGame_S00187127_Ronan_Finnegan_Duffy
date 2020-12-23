@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SequenceGame_S00187127_Ronan_Finnegan_Duffy">
+        <activity android:name=".DisplayScores"></activity>
+        <activity android:name=".RepeatSequence" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -34,17 +34,23 @@ public class DisplayScores extends AppCompatActivity {
         // Create a scores array
         List<String> scoresArray = new ArrayList<>();
 
+        // Create a ticker variable to count to five
+
+        int x = 1;
+
         // Populate the array
-        for(HighScore : highScoreList){
+        for(HighScore hs : highScoreList){
             scoresArray.add(x++ + " : "  +
-                    HighScore. + "\t" +
-                    hs.getScore());)
+                    hs.getPlayerName() + "\t" +
+                    hs.getScore());
         }
 
         // Create an adaptor
 
-        ArrayAdapter<String> scoresAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, scoresStr);
-        listView.setAdapter(itemsAdapter);
+        ArrayAdapter<String> itemsAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, scoresArray);
+        scoresLV.setAdapter(itemsAdapter);
+
 
 
     }
